@@ -2,7 +2,7 @@
 #'
 #' @return nothing
 #' @export
-#'
+#' @importFrom stats rnorm
 #' @examples
 #' plot(hello_pdfs())
 #' plot(hello_pdfs())

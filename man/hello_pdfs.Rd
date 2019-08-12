@@ -14,4 +14,5 @@ Hello PDFs
 }
 \examples{
 plot(hello_pdfs())
+plot(hello_pdfs())
 }

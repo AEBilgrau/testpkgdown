@@ -2,11 +2,38 @@
 
 language: r
 
+r:
+  - oldrel
+  - release
+  - devel
+
 cache: packages
 
-before_cache: Rscript -e 'remotes::install_cran("pkgdown")'
+r_build_args: --no-build-vignettes --no-manual --no-resave-data
+
+r_check_args: --no-build-vignettes --no-manual
+
+warnings_are_errors: false
+
+r_github_packages:
+  - r-lib/covr
+  - r-lib/pkgdown
+
+after_success:
+  - Rscript -e 'covr::coveralls()'
+
+after_failure:
+  - Rscript -e 'sessionInfo()'
+  - Rscript -e 'installed.packages()'
 
 deploy:
   provider: script
-  script: Rscript -e 'pkgdown::deploy_site_github()'
+  script: Rscript -e 'pkgdown::deploy_site_github(verbose = TRUE, new_process = FALSE)'
   skip_cleanup: true
+  on:
+    condition: "$TRAVIS_R_VERSION_STRING = release"
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change

@@ -1,6 +1,6 @@
 Package: testpkgdown
 Title: Try to reproduce a PDF bug of pkgdown
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: 
   person(given = c("Anders", "Ellern"),
          family = "Bilgrau",
@@ -12,3 +12,20 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
+VignetteBuilder: knitr
+Suggests:
+    idr,
+    Hmisc,
+    RColorBrewer,
+    foreach,
+    jpeg,
+    testthat (>= 0.3),
+    knitr,
+    rmarkdown,
+    shiny,
+    shinydashboard,
+    shinyBS,
+    rhandsontable,
+    DT
+Imports:
+    Rcpp (>= 0.10.6)

@@ -29,4 +29,4 @@ Suggests:
     rhandsontable,
     DT
 Imports:
-    Rcpp (>= 0.10.6)
+    Rcpp (>= 0.10.6), ellipse

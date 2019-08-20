@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hello PDFs — hello_pdfs • testpkgdown</title>
+<title>Fast ranking function — Uhat • testpkgdown</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,13 @@
 
 
 
-<meta property="og:title" content="Hello PDFs — hello_pdfs" />
+<meta property="og:title" content="Fast ranking function — Uhat" />
 
-<meta property="og:description" content="Hello PDFs" />
+<meta property="og:description" content="Function for computing the scaled ranks for each column of the input matrix.
+In other words, the values are ranked column-wise and divided by
+nrow(x) + 1. A &quot;1334&quot; ranking scheme is used where the lowest values
+is awarded rank 1, second lowest value rank 2, and ties are given the
+maximum available rank." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -98,38 +102,65 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Hello PDFs</h1>
+    <h1>Fast ranking function</h1>
     
-    <div class="hidden name"><code>hello_pdfs.Rd</code></div>
+    <div class="hidden name"><code>Uhat.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Hello PDFs</p>
+    <p>Function for computing the scaled ranks for each column of the input matrix.
+In other words, the values are ranked column-wise and divided by
+<code>nrow(x) + 1</code>. A "1334" ranking scheme is used where the lowest values
+is awarded rank 1, second lowest value rank 2, and ties are given the
+maximum available rank.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>hello_pdfs</span>()</pre>
-        
+    <pre class="usage"><span class='fu'>Uhat</span>(<span class='no'>x</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>A <code>numeric</code> <code>matrix</code> of observations to be ranked. Rows
+correspond to features and columns to experiments.</p></td>
+    </tr>
+    </table>
+    
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>nothing</p>
+    <p>A <code>matrix</code> with the same dimensions as <code>x</code> of the scaled
+  ranks.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='SimulateGMCMData.html'>SimulateGMMData</a></code>, <code><a href='SimulateGMCMData.html'>SimulateGMCMData</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>))
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>hello_pdfs</span>())
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>hello_pdfs</span>())</div><div class='img'><img src='hello_pdfs-1.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='SimulateGMCMData.html'>SimulateGMMData</a></span>()
+<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>))
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>data</span>$<span class='no'>z</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/expression.html'>expression</a></span>(<span class='no'>z</span>[<span class='fl'>1</span>]), <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/expression.html'>expression</a></span>(<span class='no'>z</span>[<span class='fl'>2</span>]))
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>Uhat</span>(<span class='no'>data</span>$<span class='no'>z</span>),
+     <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/expression.html'>expression</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/influence.measures.html'>hat</a></span>(<span class='no'>u</span>)[<span class='fl'>1</span>]),
+     <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/expression.html'>expression</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/influence.measures.html'>hat</a></span>(<span class='no'>u</span>)[<span class='fl'>2</span>]))</div><div class='img'><img src='Uhat-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>
 
+    <h2>Author</h2>
+    <p>Anders Ellern Bilgrau &lt;anders.ellern.bilgrau@gmail.com&gt;</p>
   </div>
 </div>
 

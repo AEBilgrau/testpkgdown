@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hello PDFs — hello_pdfs • testpkgdown</title>
+<title>Cumulative mean values — cummean • testpkgdown</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,10 @@
 
 
 
-<meta property="og:title" content="Hello PDFs — hello_pdfs" />
+<meta property="og:title" content="Cumulative mean values — cummean" />
 
-<meta property="og:description" content="Hello PDFs" />
+<meta property="og:description" content="Returns a vector whose i'th element is the cumulative mean
+(arithmetic mean) of the i'th first elements of the argument." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -98,38 +99,76 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Hello PDFs</h1>
+    <h1>Cumulative mean values</h1>
     
-    <div class="hidden name"><code>hello_pdfs.Rd</code></div>
+    <div class="hidden name"><code>cummean.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Hello PDFs</p>
+    <p>Returns a vector whose <code>i</code>'th element is the cumulative mean
+(arithmetic mean) of the <code>i</code>'th first elements of the argument.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>hello_pdfs</span>()</pre>
-        
+    <pre class="usage"><span class='fu'>cummean</span>(<span class='no'>x</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>a numeric vector.</p></td>
+    </tr>
+    </table>
+    
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>nothing</p>
+    <p>A vector of length <code><a href='https://rdrr.io/r/base/length.html'>length(x)</a></code> with the cumulative mean. The
+<code>i</code>'th entry <code>cummean(x)[i]</code> equals <code><a href='https://rdrr.io/r/base/mean.html'>mean(x[1:i])</a></code>.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='https://rdrr.io/r/base/cumsum.html'>cumsum</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>))
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>hello_pdfs</span>())
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>hello_pdfs</span>())</div><div class='img'><img src='hello_pdfs-1.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sort.html'>sort</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>100</span>))
+<span class='kw pkg'>testpkgdown</span><span class='kw ns'>:::</span><span class='fu'><a href='https://rdrr.io/pkg/testpkgdown/man/cummean.html'>cummean</a></span>(<span class='no'>x</span>)</div><div class='output co'>#&gt;   [1] -1.9452480760 -1.9269696480 -1.8922440238 -1.8565383966 -1.8056367363
+#&gt;   [6] -1.7701717254 -1.6967865240 -1.6407083360 -1.5882731519 -1.5359563081
+#&gt;  [11] -1.4921348835 -1.4416631970 -1.3968107083 -1.3572459394 -1.3219003980
+#&gt;  [16] -1.2896911020 -1.2603683931 -1.2338494019 -1.2072812987 -1.1827340590
+#&gt;  [21] -1.1584863586 -1.1349127036 -1.1131195908 -1.0925732846 -1.0729794158
+#&gt;  [26] -1.0543408589 -1.0368431124 -1.0164604529 -0.9973830789 -0.9794446260
+#&gt;  [31] -0.9617822971 -0.9438126036 -0.9248017605 -0.9068437883 -0.8882651648
+#&gt;  [36] -0.8700154912 -0.8523430196 -0.8353293162 -0.8180060486 -0.8013064598
+#&gt;  [41] -0.7839145304 -0.7646538931 -0.7462684783 -0.7286591770 -0.7113505295
+#&gt;  [46] -0.6943221871 -0.6774477720 -0.6609968768 -0.6448438052 -0.6293075094
+#&gt;  [51] -0.6123164195 -0.5959625088 -0.5799651643 -0.5639100684 -0.5483282802
+#&gt;  [56] -0.5326278452 -0.5172354855 -0.5018836576 -0.4865731972 -0.4715875066
+#&gt;  [61] -0.4570923853 -0.4427239965 -0.4286898479 -0.4135794676 -0.3973433657
+#&gt;  [66] -0.3814877100 -0.3661032225 -0.3510218350 -0.3358971294 -0.3211417740
+#&gt;  [71] -0.3061905888 -0.2915171898 -0.2770717313 -0.2627892732 -0.2488109892
+#&gt;  [76] -0.2351920130 -0.2216366334 -0.2082363471 -0.1945730505 -0.1811011044
+#&gt;  [81] -0.1671065023 -0.1525843212 -0.1375250940 -0.1226013587 -0.1071854766
+#&gt;  [86] -0.0920479454 -0.0770074670 -0.0621919428 -0.0465253033 -0.0309802596
+#&gt;  [91] -0.0153709988  0.0003822591  0.0161021290  0.0321078352  0.0492783029
+#&gt;  [96]  0.0662647056  0.0844792397  0.1030127020  0.1248860299  0.1489456702</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>
 
+    <h2>Author</h2>
+    <p>Anders Ellern Bilgrau &lt;anders.ellern.bilgrau@gmail.com&gt;</p>
   </div>
 </div>
 

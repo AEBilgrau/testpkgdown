@@ -20,7 +20,6 @@ Suggests:
     RColorBrewer,
     foreach,
     jpeg,
-    testthat (>= 0.3),
     knitr,
     rmarkdown,
     shiny,

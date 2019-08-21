@@ -37,9 +37,6 @@ str(freshVsFrozen)
 
 # Plot P-values
 plot(freshVsFrozen[,c(2,4)], cex = 0.5)
-
-# Plot ranked and scaled P-values
-plot(Uhat(abs(freshVsFrozen[,c(1,3)])), cex = 0.5)
 }
 \references{
 Rasmussen SM, Bilgrau AE, Schmitz A, Falgreen S, Bergkvist KS, Tramm AM,

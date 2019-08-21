@@ -28,9 +28,6 @@ str(u133VsExon)
 
 # Plot P-values
 plot(u133VsExon, cex = 0.5)
-
-# Plot ranked and scaled P-values
-plot(Uhat(1-u133VsExon), cex = 0.5)
 }
 \references{
 Bergkvist, Kim Steve, Mette Nyegaard, Martin Boegsted, Alexander Schmitz,

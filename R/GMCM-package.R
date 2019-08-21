@@ -11,20 +11,20 @@
 #' @name GMCM-package
 #' @aliases GMCM-package GMCM
 #' @details If the meta analysis of Li et al. (2011) is to be performed, the
-#'   function \code{\link{fit.meta.GMCM}} is used to identify the maximum
+#'   function is used to identify the maximum
 #'   likelihood estimate of the special Gaussian mixture copula model (GMCM)
-#'   defined by Li et al. (2011). The function \code{\link{get.IDR}}
+#'   defined by Li et al. (2011). The function
 #'   computes the local and adjusted Irreproducible Discovery Rates defined
 #'   by Li et al. (2011) to determine the level of reproducibility.
 #'
 #'   Tewari et. al. (2011) proposed using GMCMs as an general unsupervised
 #'   clustering tool. If such a general unsupervised clustering is needed, like
-#'   above, the function \code{\link{fit.full.GMCM}} computes the maximum
+#'   above, the function  computes the maximum
 #'   likelihood estimate of the general GMCM. The function
-#'   \code{\link{get.prob}} is used to estimate the class membership
+#'   is used to estimate the class membership
 #'   probabilities of each observation.
 #'
-#'   \code{\link{SimulateGMCMData}} provide easy simulation from the GMCMs.
+#'   provide easy simulation from the GMCMs.
 #'
 #' @author
 #'   Anders Ellern Bilgrau,
@@ -48,57 +48,9 @@
 #'   Characterization of Multimodal Distributions with Non-gaussian Modes.
 #'   2011 IEEE 11th International Conference on Data Mining Workshops,
 #'   286-292. doi:10.1109/ICDMW.2011.135
-#' @seealso
-#'   Core user functions: \code{\link{fit.meta.GMCM}},
-#'   \code{\link{fit.full.GMCM}}, \code{\link{get.IDR}},
-#'   \code{\link{get.prob}}, \code{\link{SimulateGMCMData}},
-#'   \code{\link{SimulateGMMData}}, \code{\link{rtheta}},
-#'   \code{\link{Uhat}}, \code{\link{choose.theta}},
-#'   \code{\link{full2meta}}, \code{\link{meta2full}}
 #'
 #'   Package by Li et. al. (2011): \code{\link[idr:idr-package]{idr}}.
-#' @useDynLib testpkgdown
-#' @importFrom Rcpp evalCpp
-#' @importFrom stats approxfun cov.wt cov2cor kmeans optim rchisq rnorm runif
-#' @importFrom utils flush.console
-#' @examples
-#' # Loading data
-#' data(u133VsExon)
-#'
-#' # Subsetting data to reduce computation time
-#' u133VsExon <- u133VsExon[1:5000, ]
-#'
-#' # Ranking and scaling,
-#' # Remember large values should be critical to the null!
-#' uhat <- Uhat(1 - u133VsExon)
-#'
-#' # Visualizing P-values and the ranked and scaled P-values
-#' \dontrun{
-#' par(mfrow = c(1,2))
-#' plot(u133VsExon, cex = 0.5, pch = 4, col = "tomato", main = "P-values",
-#'      xlab = "P   (U133)", ylab = "P   (Exon)")
-#' plot(uhat, cex = 0.5, pch = 4, col = "tomato", main = "Ranked P-values",
-#'      xlab = "rank(1-P)   (U133)", ylab = "rank(1-P)   (Exon)")
-#' }
-#'
-#' # Fitting using BFGS
-#' fit <- fit.meta.GMCM(uhat, init.par = c(0.5, 1, 1, 0.5), pgtol = 1e-2,
-#'                      method = "L-BFGS", positive.rho = TRUE, verbose = TRUE)
-#'
-#' # Compute IDR values and classify
-#' idr <- get.IDR(uhat, par = fit)
-#' table(idr$K) # 1 = irreproducible, 2 = reproducible
-#'
-#' \dontrun{
-#' # See clustering results
-#' par(mfrow = c(1,2))
-#' plot(u133VsExon, cex = 0.5, pch = 4, main = "Classified genes",
-#'      col = c("tomato", "steelblue")[idr$K],
-#'      xlab = "P-value (U133)", ylab = "P-value (Exon)")
-#' plot(uhat, cex = 0.5, pch = 4, main = "Classified genes",
-#'      col = c("tomato", "steelblue")[idr$K],
-#'      xlab = "rank(1-P) (U133)", ylab = "rank(1-P) (Exon)")
-#' }
+#' @importFrom stats  rchisq rnorm runif
 NULL
 
 
@@ -141,9 +93,6 @@ NULL
 #'
 #' # Plot P-values
 #' plot(u133VsExon, cex = 0.5)
-#'
-#' # Plot ranked and scaled P-values
-#' plot(Uhat(1-u133VsExon), cex = 0.5)
 NULL
 
 
@@ -190,17 +139,5 @@ NULL
 #'
 #' # Plot P-values
 #' plot(freshVsFrozen[,c(2,4)], cex = 0.5)
-#'
-#' # Plot ranked and scaled P-values
-#' plot(Uhat(abs(freshVsFrozen[,c(1,3)])), cex = 0.5)
 NULL
 
-
-
-# The following ensures that the DLL is unloaded when the package is unloaded.
-# See http://r-pkgs.had.co.nz/src.html
-.onUnload <- function(libpath) {
- library.dynam.unload("testpkgdown", libpath) # nocov
-}
-
-# 6f037e235ba745d55fea4baa9f32caf64ce2d336ac431578a4ce67ee6e1aebf2

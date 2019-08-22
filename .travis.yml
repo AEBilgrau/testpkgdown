@@ -2,11 +2,6 @@
 
 language: r
 
-r:
-  - oldrel
-  - release
-  - devel
-
 cache: packages
 
 r_build_args: --no-build-vignettes --no-manual --no-resave-data
@@ -28,10 +23,8 @@ after_failure:
 
 deploy:
   provider: script
-  script: Rscript -e 'pkgdown::deploy_site_github(verbose = TRUE, new_process = FALSE)'
+  script: Rscript -e 'pkgdown::deploy_site_github()'
   skip_cleanup: true
-  on:
-    condition: "$TRAVIS_R_VERSION_STRING = release"
 
 notifications:
   email:

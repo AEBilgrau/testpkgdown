@@ -60,7 +60,6 @@ start.theta$mu <- t(kmeans(data$z, 3)$centers) # More sensible location estimate
 start.theta <- as.theta(start.theta) # Coerce the matrix to a list
 res <- testpkgdown:::EMAlgorithm(data$z, theta = start.theta)
 
-par(mfrow = c(1,2))
 plot(data$z, cex = 0.5, pch = 16, main = "Simulated data",
      col = rainbow(3)[data$K])
 plot(data$z, cex = 0.5, pch = 16, main = "GMM clustering",

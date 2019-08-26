@@ -69,7 +69,6 @@
 #' sim <- SimulateGMCMData(n = 1000, m = 3, d = 2)
 #'
 #' # Plotting simulated data
-#' par(mfrow = c(1,2))
 #' plot(sim$z, col = rainbow(3)[sim$K], main = "Latent process")
 #' plot(sim$u, col = rainbow(3)[sim$K], main = "GMCM process")
 #'
@@ -91,7 +90,6 @@
 #'
 #' # As seen, the underlying latent process is hard to estimate.
 #' # The clustering, however, is very good.
-#' par(mfrow = c(2,2))
 #' plot(simfit$z, col = simfit$K, main = "Model check 1\nSimulated GMM")
 #' plot(simfit$u, col = simfit$K, main = "Model check 2\nSimulated GMCM")
 #' plot(sim$u, col = Khat, main = "MAP clustering")

@@ -14,7 +14,7 @@
 #' @seealso \code{\link{SimulateGMMData}}, \code{\link{SimulateGMCMData}}
 #' @examples
 #' data <- SimulateGMMData()
-#' par(mfrow = c(1,2))
+#'
 #' plot(data$z, xlab = expression(z[1]), ylab = expression(z[2]))
 #' plot(Uhat(data$z),
 #'      xlab = expression(hat(u)[1]),

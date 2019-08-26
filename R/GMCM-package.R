@@ -74,7 +74,6 @@
 #'
 #' # Visualizing P-values and the ranked and scaled P-values
 #' \dontrun{
-#' par(mfrow = c(1,2))
 #' plot(u133VsExon, cex = 0.5, pch = 4, col = "tomato", main = "P-values",
 #'      xlab = "P   (U133)", ylab = "P   (Exon)")
 #' plot(uhat, cex = 0.5, pch = 4, col = "tomato", main = "Ranked P-values",
@@ -91,7 +90,6 @@
 #'
 #' \dontrun{
 #' # See clustering results
-#' par(mfrow = c(1,2))
 #' plot(u133VsExon, cex = 0.5, pch = 4, main = "Classified genes",
 #'      col = c("tomato", "steelblue")[idr$K],
 #'      xlab = "P-value (U133)", ylab = "P-value (Exon)")

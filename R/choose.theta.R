@@ -37,14 +37,12 @@
 #' cols <- apply(get.prob(obs.data,theta),1,which.max)
 #'
 #' # Plotting
-#' par(mfrow = c(1,3))
 #' plot(data1$z, main = "True latent GMM")
 #' plot(Uhat(data1$u), col = cols,
 #'      main = "Observed GMCM\nColoured by k-means clustering")
 #' plot(data2$z, main = "initial GMM")
 #'
 #' # Alteratively, theta can simply be plotted to illustrate the GMM density
-#' dev.off()
 #' plot(theta, add.ellipses = TRUE)
 #' points(data2$z, pch = 16, cex = 0.4)
 #' @export

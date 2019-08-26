@@ -51,7 +51,6 @@
 #' uhat <- Uhat(data$u)  # Observed ranks
 #'
 #' # Plot of latent and observed data colour coded by the true component
-#' par(mfrow = c(1,2))
 #' plot(data$z, main = "Latent data", cex = 0.6,
 #'      xlab = "z (Experiment 1)", ylab = "z (Experiment 2)",
 #'      col = c("red","blue")[data$K])

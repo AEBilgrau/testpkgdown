@@ -69,7 +69,6 @@ gmcm.data1 <- SimulateGMCMData(n = 1000, m = 4, d = 2)
 str(gmcm.data1)
 
 # Plotthe 2nd simulation
-par(mfrow = c(1,2))
 plot(gmcm.data1$z, col = gmcm.data1$K)
 plot(gmcm.data1$u, col = gmcm.data1$K)
 
@@ -79,7 +78,6 @@ gmcm.data2 <- SimulateGMCMData(n = 5000, theta = theta)
 str(gmcm.data2)
 
 # Plotting the 3rd simulation
-par(mfrow=c(1,2))
 plot(gmcm.data2$z, col = gmcm.data2$K)
 plot(gmcm.data2$u, col = gmcm.data2$K)
 }

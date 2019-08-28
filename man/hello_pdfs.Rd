@@ -14,5 +14,6 @@ Hello PDFs
 }
 \examples{
 plot(hello_pdfs())
+dev.off()
 plot(hello_pdfs())
 }
